@@ -1,7 +1,10 @@
-const ItemListContainer = (prop) => {
+import "./ItemListContainer.css"
+
+
+const ItemListContainer = ({greeting}) => {
     return (
       <main>
-          <h2> Bienvenido a {prop.title}! </h2>
+          <h2> Bienvenido a {greeting}! </h2>
       </main>
     );
   };

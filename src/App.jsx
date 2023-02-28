@@ -5,9 +5,9 @@ import { NavBar } from "./components/NavBar";
 
 function App() {
   return <div>
-    <ItemListContainer
-    title="nuestra página en desarrollo" />
     <NavBar />
+    <ItemListContainer
+    greeting={"nuestra página en desarrollo"} />
   </div>;
 }
 

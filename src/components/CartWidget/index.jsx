@@ -1,10 +1,11 @@
 import "./cartWidget.css";
 import { BsCart4 } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export const CartWidget = () => {
   return (
   <div className='cartWidget'>
-    <a href="#"><BsCart4/></a>
+    <Link to={`/cart`} ><BsCart4/></Link>
     <span>0</span>
   </div>
   );

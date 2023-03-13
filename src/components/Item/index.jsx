@@ -10,7 +10,7 @@ export const Item = ({producto}) => {
             <h2>{producto.stock}</h2>
             <ItemCount/>
             <button>
-            <Link to={`/producto/${id}`} />
+            <Link to={`/producto/${producto.id}`} />
                     Ver detalle
             </button>
         </div>

@@ -1,19 +1,21 @@
 import ItemDetail from "../ItemDetail";
 import { useEffect, useState } from "react";
+import Productos from "../../mocks/Productos";
 import { useParams } from "react-router-dom";
 
 function ItemDetailContainer({ detailProduct }) {
-  const [productos, setProductos] = useState([]);
+  const [producto, setProducto] = useState({});
 
   useEffect(() => {
     const productoDetail = Productos.find(
       (producto) => producto.id === detailProduct
     );
-  }, [productDetail]);
+    setProducto(productoDetail);
+  }, [detailProduct]);
 
   return (
     <div>
-      <ItemDetail productos={productoDetail} />
+      <ItemDetail producto={producto} />
     </div>
   );
 }

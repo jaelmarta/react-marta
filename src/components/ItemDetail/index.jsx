@@ -1,6 +1,13 @@
 import { ItemCount } from "../ItemCount"
+import Productos from "../../mocks/Productos";
 
-const ItemDetail = () => {
+
+
+const producto = Productos;
+
+
+
+const ItemDetail = ({producto}) => {
 
  
     return (
@@ -11,7 +18,7 @@ const ItemDetail = () => {
                 <div>
                     <p>{producto.description}</p>
                     <p>{producto.description}</p>
-                    <ItemCount/>
+                    <ItemCount />
                 </div>
             </div>
         </div>

@@ -1,3 +1,3 @@
 # react-marta
 
-instalados: react-router-dom
+instalados: react-router-dom, react-icons

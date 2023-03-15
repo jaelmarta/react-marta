@@ -25,7 +25,11 @@ function ItemListContainer({ categoryId, isCategoryRoute }) {
 
   return (
     <div>
-      <ItemList productos={productos} />
+      {productos.length === 0 ? (
+        <h1>Cargando...</h1>
+      ) : (
+        <ItemList productos={productos} />
+      )}
     </div>
   );
 }

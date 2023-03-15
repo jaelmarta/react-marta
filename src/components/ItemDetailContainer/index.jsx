@@ -8,7 +8,7 @@ function ItemDetailContainer({ detailProduct }) {
 
   useEffect(() => {
     const productoDetail = Productos.find(
-      (producto) => producto.id === detailProduct
+      (producto) => producto.id == detailProduct
     );
     setProducto(productoDetail);
   }, [detailProduct]);

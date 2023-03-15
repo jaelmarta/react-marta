@@ -16,9 +16,8 @@ const ItemDetail = ({producto}) => {
             <div>
                 <img src={producto.image} alt={producto.name} />
                 <div>
-                    <p>{producto.description}</p>
-                    <p>{producto.description}</p>
-                    <ItemCount />
+                    <p>{producto.longDescription}</p>
+                    <ItemCount stock={producto.stock} />
                 </div>
             </div>
         </div>

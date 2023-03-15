@@ -1,20 +1,16 @@
 import { useState } from "react";
 import "./itemCount.css";
 
-export const ItemCount = (stock, initial, onAdd) => {
-  const [counter, setCounter] = useState(0);
-  //const date = new Date().toLocaleDateString();
-  //const hours = new Date().toLocaleTimeString();
- //<p className="productDescription">
-        //you clicked {counter} times, last click on {date}, {hours}
-      //</p>
+export const ItemCount = ({stock}) => {
+  const [counter, setCounter] = useState(1);
+
   return (
-    <div className="productCard">
+    <div className="addRemove-Button">
      
       
-      <button onClick={() => setCounter(counter - 1)}> - </button>
+      <button className="add-button" onClick={() => setCounter(counter - 1)} disabled={counter <=0}> - </button>
       <p>{counter}</p>
-       <button onClick={() => setCounter(counter + 1)}> + </button>
+       <button className="remove-button" onClick={() => setCounter(counter + 1)} disabled={counter>= stock}> + </button>
     </div>
   );
 };

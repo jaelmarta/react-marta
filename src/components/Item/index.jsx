@@ -9,7 +9,7 @@ const producto = Productos;
 //<button className="product-button">Agregar al carrito</button>
 
 export const Item = ({ producto }) => {
-  const {onAdd} = useCart();
+  const { onAdd } = useCart();
   return (
     <div className="product-container">
       <div className="product-card">
@@ -29,7 +29,13 @@ export const Item = ({ producto }) => {
         <div className="product-price">
           <h2>${producto.price}</h2>
         </div>
-        <ItemCount stock={producto.stock} initial={1} onAdd={onAdd}/>
+        {producto.stock === 0 ? (
+          <p>Fuera de stock</p>
+        ) : (
+          <Link to={`/product/${producto.id}`}>
+            <button>Ver Detalle</button>
+          </Link>
+        )}
       </div>
     </div>
   );

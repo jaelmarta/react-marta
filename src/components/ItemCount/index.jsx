@@ -5,11 +5,8 @@ import Productos from "../../mocks/Productos";
 
 export const ItemCount = ({ stock, initial }) => {
   const [counter, setCounter] = useState(initial);
-  const { onAdd } = useContext(Context);
-  const producto = Productos
-  const handleAdd = (count) => {
-    onAdd(producto, count)
-  };
+  const { onAdd, onRemove } = useContext(Context);
+  
 
   const restar = () => {
     if (counter > 1) {
@@ -24,9 +21,9 @@ export const ItemCount = ({ stock, initial }) => {
 
   const agregarAlCarrito = () => {
     const cantidad = counter;
-    handleAdd(cantidad);
+    onAdd(cantidad);
   };
-  //<button onClick={() => onRemove(counter)}>Eliminar</button>
+
   return (
     <div className="addRemove-Button">
       <button onClick={restar} >
@@ -42,6 +39,7 @@ export const ItemCount = ({ stock, initial }) => {
       >
         Agregar al Carrito
       </button>
+      <button onClick={() => onRemove(counter)}>Eliminar</button>
     </div>
   );
 };

@@ -1,17 +1,17 @@
 import { ItemCount } from "../ItemCount";
 import Productos from "../../mocks/Productos";
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useCart } from "../../ContextProvider";
 
-
 const ItemDetail = ({ producto }) => {
-const {onAdd} = useCart();
-
-//const producto = Productos;
-const [cartQuantity, setCartQuantity] = useState(0);
-const [showItemCount, setShowItemCount] = useState(true);
-
+  const { onAdd } = useCart();
+  const handleAdd = (counter) => {
+    onAdd(producto, counter);
+  };
+  //const producto = Productos;
+  const [cartQuantity, setCartQuantity] = useState(0);
+  const [showItemCount, setShowItemCount] = useState(true);
 
   return (
     <div>
@@ -24,7 +24,13 @@ const [showItemCount, setShowItemCount] = useState(true);
           <p>{producto.longDescription}</p>
         </div>
         <div>
-          {showItemCount && <ItemCount stock={producto.stock} initial={1} handleAdd={handleAdd} />}
+          {showItemCount && (
+            <ItemCount
+              stock={producto.stock}
+              initial={1}
+              handleAdd={handleAdd}
+            />
+          )}
           {!showItemCount && <p>Cantidad seleccionada: {cartQuantity}</p>}
           <Link to="/">
             <button>Continuar comprando</button>

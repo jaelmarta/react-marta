@@ -11,19 +11,39 @@ export function ContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [cartQuantity, setCartQuantity] = useState(0);
 
+  
   const isInCart = (producto) => cart.some((esta) => esta.id === producto.id);
 
   const onAdd = (producto, cantidad) => {
-    const id=producto.id;
+    const id = producto.id;
     if (isInCart(id)) {
-      cantidad + 1;
+      const updatedCart = cart.map(item => {
+        if (item.id === id) {
+          return { ...item, cantidad: item.cantidad + cantidad };
+        } else {
+          return item;
+        }
+      });
+      setCart(updatedCart);
     } else {
+      const addProduct = { ...producto, id, cantidad };
+      setCart([...cart, addProduct]);
+    }
+  };
+
+  /*const onAdd = (producto, cantidad) => {
+    const id=producto.id;
+    if (isInCart(id) === id) {
+      return {
+        ...producto,
+        cantidad:   producto.cantidad,
+      };} else {
       const addProduct = { ...producto, id };
       setCart([...cart, addProduct]);
     }
   };
 
-  /*(producto, cantidad) => {
+  (producto, cantidad) => {
     const id=producto.id;
     if (isInCart(id)) {
       return window.alert("Este producto ya fue agregado");
@@ -42,19 +62,6 @@ export function ContextProvider({ children }) {
     setCartQuantity(0);
   };
 
-  /*const addedInCart = (cart, state) => {
-    const copyCart = [...productos];
-    const addProductInCart = copyCart.map((producto) => {
-      if (producto.id === cart.id) {
-        return { ...producto, state: !state};
-      } else {
-        return state;
-      }
-      });
-      setCart(addProductInCart)
-
-
-  }*/
 
   const contextValue = {
     productos: cart,

@@ -1,10 +1,10 @@
 import ItemDetail from "../ItemDetail";
 import { useEffect, useState } from "react";
 import Productos from "../../mocks/Productos";
-import { useParams } from "react-router-dom";
 
 function ItemDetailContainer({ detailProduct }) {
   const [producto, setProducto] = useState({});
+
 
   useEffect(() => {
     const productoDetail = Productos.find(
@@ -13,9 +13,11 @@ function ItemDetailContainer({ detailProduct }) {
     setProducto(productoDetail);
   }, [detailProduct]);
 
+  
   return (
     <div>
       <ItemDetail producto={producto} />
+
     </div>
   );
 }

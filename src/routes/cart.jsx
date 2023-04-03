@@ -1,12 +1,11 @@
-import { CartWidget } from "../components/CartWidget";
+import { Cart } from "../components/Cart";
 import { NavBar } from "../components/NavBar";
 
-function CartRoot() {   
-
+function CartRoot() {
   return (
     <div>
       <NavBar />
-      <CartWidget />
+      <Cart />
     </div>
   );
 }

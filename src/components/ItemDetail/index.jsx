@@ -6,12 +6,10 @@ import { useCart } from "../../ContextProvider";
 
 const ItemDetail = ({ producto }) => {
   const { onAdd } = useCart();
+  const [cartQuantity, setCartQuantity] = useState(0);
   const handleAdd = (counter) => {
     onAdd(producto, counter);
   };
-  //const producto = Productos;
-  const [cartQuantity, setCartQuantity] = useState(0);
-  const [showItemCount, setShowItemCount] = useState(true);
 
   return (
     <div>
@@ -24,15 +22,16 @@ const ItemDetail = ({ producto }) => {
           <p>{producto.longDescription}</p>
         </div>
         <div>
-          {producto.stock === 0 ? (
-            <p>Fuera de stock</p>
-          ) : (
+          
+        {producto.stock === 0 ? (<p>Fuera de stock</p>) : (
             <ItemCount
               stock={producto.stock}
               initial={0}
-              handleAdd={handleAdd}
+              onAddToCart={handleAdd}
+              
             />
           )}
+          
           <Link to="/">
             <button>Continuar comprando</button>
           </Link>

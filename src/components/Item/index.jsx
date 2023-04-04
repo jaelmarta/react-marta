@@ -1,15 +1,11 @@
-import { ItemCount } from "../ItemCount";
 import { Link } from "react-router-dom";
 import Productos from "../../mocks/Productos";
-import { useCart } from "../../ContextProvider";
 import "./item.css";
 
-const producto = Productos;
 
 //<button className="product-button">Agregar al carrito</button>
 
 export const Item = ({ producto }) => {
-  const { onAdd } = useCart();
   return (
     <div className="product-container">
       <div className="product-card">

@@ -21,13 +21,17 @@ function ItemListContainer({ categoryId, isCategoryRoute }) {
       } else {
         setProductos(response);
       }
-    });
+    })
+    .catch((error) => {
+      console.error("Error al cargar los productos:", error);
+
+  })
   }, [categoryId]);
 
   return (
     <div>
       {productos.length === 0 ? (
-        <BeatLoader color="#36d7b7" />
+        <BeatLoader  />
       ) : (
         <ItemList productos={productos} />
       )}

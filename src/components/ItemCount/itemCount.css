@@ -1,8 +1,9 @@
 .addRemove-Button {
-  display: flex;
+  display:flex;
+  align-items: center;
   color: #000000;
   font-weight: bold;
-  margin: 2%;
+  
   border: none;
   border-radius: 5px;
   cursor: pointer;

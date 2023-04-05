@@ -32,7 +32,7 @@ export const ItemCount = ({ stock, initial, onAddToCart }) => {
       >
         Agregar al Carrito
       </button>
-      <button onClick={()=>onRemove(counter)}>Eliminar</button>
+    
     </div>
   );
 };

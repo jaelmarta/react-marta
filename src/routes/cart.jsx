@@ -1,11 +1,11 @@
-import { Cart } from "../components/Cart";
+import  CartContainer  from "../components/CartContainer";
 import { NavBar } from "../components/NavBar";
 
 function CartRoot() {
   return (
     <div>
       <NavBar />
-      <Cart />
+      <CartContainer />
     </div>
   );
 }

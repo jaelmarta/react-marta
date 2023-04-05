@@ -1,17 +1,30 @@
 .cartWidget {
   display: flex;
-  margin: 2%;
+  align-items: center;
+  margin: 5%;
+  font-size: 2em;
+
 }
 
 .cartWidget > a {
-  font-size: 2em;
+  font-size: 5em;
   color: black;
 }
 
 .cartWidget > a:hover {
   color: beige;
 }
+
 .cartWidget > span {
-  font-size: 150%;
-  margin: 10%;
-}
+  border-radius: 100px;
+  text-align: center;
+  font-size: 0.6em;
+  width: 30px;
+  height: 27px;
+  line-height: 28px;
+  color:white;
+  background-color:black;
+
+
+};
+

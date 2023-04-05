@@ -6,7 +6,7 @@ import { useCart } from "../../ContextProvider";
 
 export const CartWidget = () => {
 
-  const {productos} = useCart()
+  const {productos, getQuantity} = useCart()
   const cantidadProductos = productos.length
 
   return (
@@ -14,7 +14,7 @@ export const CartWidget = () => {
     <div className="cartWidget">
       <BsCart4 />
       
-      {cantidadProductos >= 1 ? (<span>{cantidadProductos}</span>) : ( null )}
+      {cantidadProductos >= 1 ? (<span>{getQuantity()}</span>) : ( null )}
     </div>
   );
 };

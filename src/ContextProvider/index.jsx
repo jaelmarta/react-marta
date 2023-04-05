@@ -38,15 +38,20 @@ export function ContextProvider({ children }) {
       }}
   };
 
-  const onRemove = (producto) => {
-    setCart((cart) => cart.filter((esta) => esta.id !== producto.id));
-    
+  const onRemove = (id) => {
+    setCart(cart.filter(prod => prod.id !== id))
   };
 
   const removeAll = () => {
     setCart([]);
     setCartQuantity(0);
   };
+
+  const getQuantity = () => {
+    let cant = 0
+    cart.forEach((e) => cant += e.cantidad)
+    return cant
+};
 
   
   const contextValue = {
@@ -55,7 +60,7 @@ export function ContextProvider({ children }) {
     onAdd,
     onRemove,
     removeAll,
-    
+    getQuantity,
     
   };
 

@@ -3,35 +3,46 @@ import "./ItemListContainer.css";
 import ItemList from "../ItemList";
 import Productos from "../../mocks/Productos";
 import { BeatLoader } from "react-spinners";
+import {
+  collection,
+  getFirestore,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 function ItemListContainer({ categoryId, isCategoryRoute }) {
   const [productos, setProductos] = useState([]);
 
+  const getDocsFromFirebase = async (collection) => {
+    await getDocs(collection)
+      .then((snapshot) => {
+        const docs = snapshot.docs;
+        setProductos(docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      })
+      .catch((error) => console.log({ error }));
+  };
+
   useEffect(() => {
-    const productosPromesa = new Promise((resolve, reject) =>
-      setTimeout(() => resolve(Productos), 1500)
-    );
+    const db = getFirestore();
+    const itemsCollection = collection(db, "Productos");
 
-    productosPromesa.then((response) => {
-      if (isCategoryRoute) {
-        const productosFiltrados = response.filter(
-          (producto) => producto.category === categoryId
-        );
-        setProductos(productosFiltrados);
-      } else {
-        setProductos(response);
-      }
-    })
-    .catch((error) => {
-      console.error("Error al cargar los productos:", error);
+    if (isCategoryRoute) {
+      const queryResult = query(
+        itemsCollection,
+        where("category", "==", categoryId)
+      );
 
-  })
+      getDocsFromFirebase(queryResult);
+    } else {
+      getDocsFromFirebase(itemsCollection);
+    }
   }, [categoryId]);
 
   return (
     <div>
       {productos.length === 0 ? (
-        <BeatLoader  />
+        <BeatLoader />
       ) : (
         <ItemList productos={productos} />
       )}
@@ -39,3 +50,5 @@ function ItemListContainer({ categoryId, isCategoryRoute }) {
   );
 }
 export default ItemListContainer;
+
+

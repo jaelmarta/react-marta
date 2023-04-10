@@ -4,8 +4,23 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import ItemRoot from "./routes/item";
 import CartRoot from "./routes/cart";
+import CheckoutRoot from "./routes/checkout"
 import "./index.css";
 import ContextProvider from "./ContextProvider";
+
+
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBtvZi6qklr4xfTQWqWek9F1y9lqjr52gA",
+  authDomain: "react-marta.firebaseapp.com",
+  projectId: "react-marta",
+  storageBucket: "react-marta.appspot.com",
+  messagingSenderId: "1011914062691",
+  appId: "1:1011914062691:web:283ffa785fc0bbbb783156"
+};
+
+initializeApp(firebaseConfig);
 
 const router = createBrowserRouter([
   {
@@ -26,7 +41,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/checkout",
-    element: <div>Pago</div>,
+    element: <CheckoutRoot />,
   },
 ]);
 

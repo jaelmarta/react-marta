@@ -7,5 +7,11 @@ Para poder usar la aplicación en primer lugar deberá clonar el repositorio alo
 Una vez clonado, deberá instalar las siguientes dependencias:
 - npm install react-router-dom
 - npm install react-icons
+- npm install react-spinners
+- npm install firebase
 
-instalados: react-router-dom, react-icons
+react-router-dom es el manejo de rutas de la aplicación.
+react-icons es el icono del carrito.
+react-spinners es el loader de los productos.
+firebase es la base de datos de todos los productos.
+

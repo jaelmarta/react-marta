@@ -13,7 +13,6 @@ export const Cart = ({ producto }) => {
         <h1>{producto.name} ${producto.price}</h1>
         <h3>Agregaste {producto.cantidad} {producto.name}</h3>
         <h4>Total: ${totalPorProducto()}</h4>
-        <h4>esto es una prueba</h4>
         
 
         <button onClick={()=>onRemove(producto.id)}>Borrar</button>
